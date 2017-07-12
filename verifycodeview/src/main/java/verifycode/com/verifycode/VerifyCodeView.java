@@ -303,10 +303,7 @@ public class VerifyCodeView extends View {
 
 
     /**
-     * 绘制光标
-     *
-     * @param canvas
-     * @param paint
+     * 绘制闪动的光标
      */
     private void drawCursor(Canvas canvas, Paint paint) {
 
@@ -325,10 +322,7 @@ public class VerifyCodeView extends View {
     }
 
     /**
-     * 绘制密码框下划线
-     *
-     * @param canvas
-     * @param paint
+     * 下划线式的验证码外框
      */
     private void drawUnderLine(Canvas canvas, Paint paint) {
 
@@ -342,6 +336,9 @@ public class VerifyCodeView extends View {
         }
     }
 
+    /**
+     * 圆形的验证码外框
+     */
     private void drawCircle(Canvas canvas, Paint paint) {
         paint.setColor(borderColor);
         paint.setStrokeWidth(dp2px(2));
@@ -368,9 +365,11 @@ public class VerifyCodeView extends View {
         return super.onTouchEvent(event);
     }
 
+    //每当窗口焦点改变时，被调用。
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
+        //隐藏软键盘
         if (!hasWindowFocus) {
             inputManager.hideSoftInputFromWindow(this.getWindowToken(), 0);
         }
@@ -425,7 +424,7 @@ public class VerifyCodeView extends View {
     }
 
     /**
-     * 验证码监听者
+     * 验证码监听者回调
      */
     public interface VerifyCodeListener {
         /**
