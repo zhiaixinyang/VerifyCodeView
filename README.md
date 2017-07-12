@@ -11,7 +11,8 @@ compile 'verifycode.com.verifycode:verifycodeview:1.0'
 ```
 
 ###XML的使用：
-width使用match_parent
+
+**width使用match_parent**
 ```xml
 
     <verifycode.com.verifycode.VerifyCodeView
